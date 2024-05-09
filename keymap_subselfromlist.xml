@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<keymap>
+  <FullscreenVideo>
+    <keyboard>
+      <l>RunScript(pk.q12.subselfromlist)</l>
+    </keyboard>
+  </FullscreenVideo>
+  <VideoMenu>
+    <keyboard>
+      <l>RunScript(pk.q12.subselfromlist)</l>
+    </keyboard>
+  </VideoMenu>
+</keymap>
