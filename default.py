@@ -21,14 +21,17 @@ def main():
     xbmc.executebuiltin("ActivateWindow(osdsubtitlesettings)")
     if not wait_for_window("osdsubtitlesettings"):
         return
-    
-    #xbmc.executebuiltin("Action(down)")
-    #xbmc.executebuiltin("Action(down)")
-    xbmc.executebuiltin("SetFocus(-78)") # Skin.ToggleDebug()
-    xbmc.executebuiltin("Action(select)")
 
+    xbmc.executebuiltin("SetFocus(-178)", wait=True) # Skin.ToggleDebug()
+    if xbmc.getInfoLabel("System.CurrentControlID") == "-178":
+        xbmc.executebuiltin("Action(select)")
     if not wait_for_window("selectdialog"):
-        return
+        xbmc.executebuiltin("Action(down)")
+        xbmc.executebuiltin("Action(down)")
+        xbmc.executebuiltin("Action(down)")
+        xbmc.executebuiltin("Action(select)")
+        if not wait_for_window("selectdialog"):
+            return
 
     while xbmc.getCondVisibility("[Window.IsActive(osdsubtitlesettings) + Window.IsActive(selectdialog)]"):
         xbmc.sleep(500)
