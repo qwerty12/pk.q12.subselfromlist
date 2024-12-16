@@ -14,6 +14,13 @@ def main():
         return
 
     player = xbmc.Player()
+    sub_streams_len = len(player.getAvailableSubtitleStreams())
+    if sub_streams_len == 2:
+        xbmc.executebuiltin("Action(CycleSubtitle)")
+        return
+    elif sub_streams_len <= 1: # redundant because of !VideoPlayer.HasSubtitles, I guess
+        return
+
     if not (already_paused := xbmc.getCondVisibility("Player.Paused")):
         player.pause()
 
