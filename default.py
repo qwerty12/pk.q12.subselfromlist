@@ -49,6 +49,9 @@ def main():
             break
     xbmc.executebuiltin("Dialog.Close(osdsubtitlesettings, true)")
 
+    if player.getSubtitles() != old_subs:
+        player.showSubtitles(True)
+
     if not already_paused:
         player.pause()
 
